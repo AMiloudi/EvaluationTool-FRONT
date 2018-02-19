@@ -1,3 +1,4 @@
+// src/actions/games/create.js
 import API from '../../api/client'
 import {
   APP_LOADING,
@@ -8,11 +9,11 @@ import {
 
 const api = new API()
 
-export default (weapon, gameId) => {
+export default () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.patch(`/games/${gameId}`, { move: weapon })
+    api.post('/batches', {})
       .then(() => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
