@@ -8,11 +8,11 @@ import {
 
 const api = new API()
 
-export default () => {
+export default ({classNumber, startDate, endDate}) => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.post('/batches', {})
+    api.post('/batches', {classNumber, startDate, endDate})
       .then(() => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })

@@ -27,10 +27,7 @@ class Lobby extends PureComponent {
   renderBatch = (batch, index) => {
     if (!batch.students[0].name) { this.props.fetchStudents(batch) }
 
-    // const title = game.players.map(p => (p.name || null))
-    //   .filter(n => !!n)
-    //   .join(' vs ')
-
+  
     return (
       <MenuItem
         key={index}
@@ -44,11 +41,7 @@ class Lobby extends PureComponent {
       <div className="Batches">
         <h1>Current Batches!</h1>
         <CreateBatchButton />
-        <Paper className="paper">
-          <Menu>
-            {this.props.batches.map(this.renderBatch)}
-          </Menu>
-        </Paper>
+
       </div>
     )
   }

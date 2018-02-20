@@ -10,45 +10,45 @@ import {
 export default (state = [], { type, payload } = {}) => {
   switch (type) {
     case FETCHED_BATCHES :
-      return [ ...payload ]
+    return [ ...payload ]
 
     case FETCHED_ONE_BATCH :
-      const batchIds = state.map(b => b._id)
-      if (batchIds.indexOf(payload._id) < 0) {
-        return [{ ...payload }].concat(state)
+    const batchIds = state.map(b => b._id)
+    if (batchIds.indexOf(payload._id) < 0) {
+      return [{ ...payload }].concat(state)
+    }
+    return state.map((batch) => {
+      if (batch._id === payload._id) {
+        return { ...payload }
       }
-      return state.map((batch) => {
-        if (batch._id === payload._id) {
-          return { ...payload }
-        }
-        return batch
-      })
+      return batch
+    })
 
     case BATCH_CREATED :
-      const newBatch = { ...payload }
-      return [newBatch].concat(state)
+    const newBatch = { ...payload }
+    return [newBatch].concat(state)
 
     case BATCH_UPDATED :
-      return state.map((batch) => {
-        if (batch._id === payload._id) {
-          return { ...payload }
-        }
-        return batch
-      })
+    return state.map((batch) => {
+      if (batch._id === payload._id) {
+        return { ...payload }
+      }
+      return batch
+    })
 
     case BATCH_STUDENTS_UPDATED :
-      return state.map((batch) => {
-        if (batch._id === payload.batch._id) {
-          return { ...payload.batch, students: payload.students }
-        }
-        return batch
-      })
+    return state.map((batch) => {
+      if (batch._id === payload.batch._id) {
+        return { ...payload.batch, students: payload.students }
+      }
+      return batch
+    })
 
     case BATCH_REMOVED :
-        return state.filter((batch) => (batch._id !== payload._id))
+    return state.filter((batch) => (batch._id !== payload._id))
 
     default :
-      return state
+    return state
 
   }
 }
