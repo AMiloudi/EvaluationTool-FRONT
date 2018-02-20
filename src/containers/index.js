@@ -1,5 +1,5 @@
 import Lobby from './Lobby'
-import Game from './Batch'
+import Batch from './Batch'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 

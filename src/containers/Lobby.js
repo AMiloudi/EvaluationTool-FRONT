@@ -8,10 +8,6 @@ import CreateBatchButton from '../components/batches/CreateBatchButton'
 import Paper from 'material-ui/Paper'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
-import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye'
-import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
-import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
-import WaitingIcon from 'material-ui/svg-icons/image/timelapse'
 import './Lobby.css'
 
 class Lobby extends PureComponent {
