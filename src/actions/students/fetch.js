@@ -6,22 +6,22 @@ import {
   LOAD_SUCCESS
 } from '../loading'
 
-export const FETCHED_BATCHES = 'FETCHED_BATCHES'
-export const FETCHED_ONE_BATCH = 'FETCHED_ONE_BATCH'
+export const FETCHED_ALL_STUDENTS = 'FETCHED_ALL_STUDENTS'
+export const FETCHED_ONE_STUDENT = 'FETCHED_ONE_STUDENT'
 
 const api = new API()
 
-export default () => {
-  return (dispatch) => {
+export default (batchId) => {
+  return dispatch => {
     dispatch({ type: APP_LOADING })
 
-    api.get('/batches')
+    api.get(`/batches/${batchId}/students`)
     .then((result) => {
       dispatch({ type: APP_DONE_LOADING })
       dispatch({ type: LOAD_SUCCESS })
 
       dispatch({
-        type: FETCHED_BATCHES,
+        type: FETCHED_ALL_STUDENTS,
         payload: result.body
       })
     })
@@ -35,17 +35,16 @@ export default () => {
   }
 }
 
-export const fetchOneBatch = (batchId) => {
+export const fetchOneStudent = (batchId, studentId) => {
   return dispatch => {
     dispatch({ type: APP_LOADING })
-
-    api.get(`/batches/${batchId}`)
+    api.get(`/batches/${batchId}/students/${studentId}`)
     .then((result) => {
       dispatch({ type: APP_DONE_LOADING })
       dispatch({ type: LOAD_SUCCESS })
 
       dispatch({
-        type: FETCHED_ONE_BATCH,
+        type: FETCHED_ONE_STUDENT,
         payload: result.body
       })
     })

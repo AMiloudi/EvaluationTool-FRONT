@@ -1,4 +1,3 @@
-// src/components/ui/Navigation.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -6,6 +5,7 @@ import { push } from 'react-router-redux'
 import signOut from '../../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
+import ActionHome from 'material-ui/svg-icons/action/home'
 import FlatButton from 'material-ui/FlatButton'
 
 const TITLE = 'Codaisseur- Evaluation Tool'
@@ -35,7 +35,7 @@ class Navigation extends PureComponent {
     return (
       <AppBar
         title={TITLE}
-        iconElementLeft={<IconButton onClick={this.goHome}></IconButton>}
+        iconElementLeft={<IconButton onClick={this.goHome}><ActionHome /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={this.signOut.bind(this)} /> :
           <FlatButton label="Sign up" onClick={this.signUp} />

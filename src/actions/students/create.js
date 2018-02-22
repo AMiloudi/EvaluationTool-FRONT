@@ -6,20 +6,20 @@ import {
   LOAD_SUCCESS
 } from '../loading'
 
-export const BATCH_CREATED = 'BATCH_CREATED'
+export const STUDENT_CREATED = 'STUDENT_CREATED'
 
 const api = new API()
 
-export default ({classNumber, startDate, endDate}) => {
+export default ({batchId, name, picture}) => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.post('/batches', {classNumber, startDate, endDate})
+    api.post(`/batches/${batchId}/students`, {name, picture})
       .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
-        dispatch({type: BATCH_CREATED, payload: result.body })
+        dispatch({type: STUDENT_CREATED, payload: result.body })
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })

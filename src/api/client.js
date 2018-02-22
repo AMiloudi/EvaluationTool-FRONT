@@ -27,38 +27,17 @@ export default class ApiClient {
     return this.post('/sessions', { email, password })
   }
 
-  // Sign out (remove the token from localStorage)
-  //
-  // Example:
-  //  api.signOut()
-  //
-  // Returns: void
   signOut() {
     this.removeToken()
   }
 
-  // GET path
-  //
-  // Example:
-  //  api.get('/recipes')
-  //    .then(res => console.log(res.body))
-  //    .catch(err => console.log(err))
-  //
-  // Returns: Promise
+
   get(path) {
     return request
       .get(this.createUrl(path))
       .set(this.headers())
   }
 
-  // POST path
-  //
-  // Example:
-  //  api.post('/recipes', { title: 'Yummy Soup', ... })
-  //    .then(res => console.log(res.body))
-  //    .catch(err => console.log(err))
-  //
-  // Returns: Promise
   post(path, data = {}) {
     return request
       .post(this.createUrl(path))
@@ -66,14 +45,6 @@ export default class ApiClient {
       .send(data)
   }
 
-  // PUT path
-  //
-  // Example:
-  //  api.put('/recipes/39820384', { title: 'Yummy Soup', ... })
-  //    .then(res => console.log(res.body))
-  //    .catch(err => console.log(err))
-  //
-  // Returns: Promise
   put(path, data = {}) {
     return request
       .put(this.createUrl(path))
@@ -81,14 +52,6 @@ export default class ApiClient {
       .send(data)
   }
 
-  // PATCH path
-  //
-  // Example:
-  //  api.patch('/recipes/39820384', { title: 'Yummy Soup', ... })
-  //    .then(res => console.log(res.body))
-  //    .catch(err => console.log(err))
-  //
-  // Returns: Promise
   patch(path, data = {}) {
     return request
       .patch(this.createUrl(path))
@@ -96,14 +59,7 @@ export default class ApiClient {
       .send(data)
   }
 
-  // DELETE path
-  //
-  // Example:
-  //  api.delete('/recipes/39820384')
-  //    .then(res => console.log(res.body))
-  //    .catch(err => console.log(err))
-  //
-  // Returns: Promise
+
   delete(path) {
     return request
       .delete(this.createUrl(path))
@@ -126,7 +82,6 @@ export default class ApiClient {
     return !!this.getToken()
   }
 
-  // Create a full URL to our API, including the host and path
   createUrl(path) {
     return [this.host, path].join('')
   }
