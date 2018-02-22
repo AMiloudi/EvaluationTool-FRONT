@@ -5,9 +5,8 @@ import fetchBatches from "../actions/batches/fetch";
 import deleteBatch from "../actions/batches/delete";
 import Moment from 'moment'
 import FlatButton from "material-ui/FlatButton";
-import {Card, CardTitle, CardActions } from 'material-ui/Card';
+import {Table, TableHeader, TableRow, TableHeaderColumn, TableBody, TableRowColumn } from 'material-ui/Table';
 import CreateBatchButton from "../components/CreateBatchButton";
-
 
 class Batches extends PureComponent {
   componentWillMount() {
@@ -24,17 +23,15 @@ class Batches extends PureComponent {
     const endDate = Moment(batch.endDate).format('d MMM YYYY')
 
     return (
-      <div className= "batch-card" key={index}>
-      <Card>
-        <CardTitle>
-        {`Class ${classNumber} `} {` Duration of the Course: ${startDate} - ${endDate}`}
-        </CardTitle>
-      </Card>
-      <CardActions>
-        <FlatButton label="View" onClick={this.goToBatch(batch._id)} />
-        <FlatButton label="Remove" onClick={this.deleteTheBatch(batch._id)} />
-      </CardActions>
-      </div>
+      <TableRow key={index}>
+          <TableRowColumn>{`Class #${classNumber} `}</TableRowColumn>
+          <TableRowColumn>{startDate}</TableRowColumn>
+          <TableRowColumn>{endDate}</TableRowColumn>
+          <TableRowColumn>
+            <FlatButton label="View" onClick={this.goToBatch(batch._id)} />
+            <FlatButton label="Remove" onClick={this.deleteTheBatch(batch._id)} />
+          </TableRowColumn>
+        </TableRow>
     )
   }
 
@@ -42,10 +39,22 @@ class Batches extends PureComponent {
     const {batches} = this.props
     return (
       <div>
-      <h3>Current batches</h3>
-      <Card>{batches.map(this.renderBatch)}</Card>
-      <CreateBatchButton />
-      </div>
+        <h3>Current batches</h3>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHeaderColumn>Batch</TableHeaderColumn>
+                <TableHeaderColumn>Start Date</TableHeaderColumn>
+                <TableHeaderColumn>End Date</TableHeaderColumn>
+                <TableHeaderColumn>Actions</TableHeaderColumn>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+                {batches.map(this.renderBatch)}
+            </TableBody>
+          </Table>
+        <CreateBatchButton />
+        </div>
     )
   }
 }

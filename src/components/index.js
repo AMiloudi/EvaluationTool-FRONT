@@ -1,9 +1,9 @@
 import Evaluations from './Evaluations'
 import EvaluationItem from './EvaluationItem'
-import BatchItem  from './BatchItem'
+import Students  from './Students'
 
 export {
   Evaluations,
-  BatchItem,
+  Students,
   EvaluationItem
 }

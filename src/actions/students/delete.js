@@ -7,9 +7,9 @@ export const STUDENT_REMOVED = 'STUDENT_REMOVED'
 
 const api = new API()
 
-export default (batchId, studentId) => {
+export default  (studentId) => {
   return (dispatch) => {
-    api.delete(`/batches/${batchId}/student/${studentId}`)
+    api.delete(`/student/${studentId}`)
     .then((result) => {
       dispatch({
         type: STUDENT_REMOVED,
