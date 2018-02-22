@@ -27,7 +27,7 @@ class CreateBatchButton extends PureComponent {
     }
     this.props.createBatch(batch)
 
-    this.refs.form.reset()
+    // this.refs.form.reset()
   }
 
   render() {
