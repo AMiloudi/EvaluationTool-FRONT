@@ -26,8 +26,6 @@ class CreateBatchButton extends PureComponent {
     this.refs.form.reset()
   }
 
-
-
   render() {
     if (!this.props.signedIn) return null
 
@@ -39,10 +37,10 @@ class CreateBatchButton extends PureComponent {
       <TextField ref= "classNumber" type="classNumber" hintText= "Class Number" />
       </div>
       <div className="input">
-      <TextField ref="startDate" type="startDate" hintText= "start date of the Academy"/>
+      <DatePicker ref="startDate" type="startDate" hintText= "start date of the Academy"/>
       </div>
       <div className="input">
-      <TextField ref="endDate" type="endDate" hintText= "end date of the Academy" />
+      <DatePicker ref="endDate" type="endDate" hintText= "end date of the Academy" />
       </div>
       <FlatButton
       onClick={ this.submitBatch.bind(this) }
