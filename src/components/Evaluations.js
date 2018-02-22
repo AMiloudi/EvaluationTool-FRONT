@@ -10,14 +10,16 @@ import {Card, CardTitle, CardActions } from 'material-ui/Card';
 class Evaluations extends PureComponent {
   componentWillMount() {
     const studentId= this.props.match.params.studentId
+
     this.props.fetchOneStudent(studentId)
     this.props.fetchEvaluations(studentId)
+        console.log(this.props)
 }
 
     renderStudent = (student, index) => {
       return (
         <div>
-          <h1>Student: {student.name}</h1>
+          <h1>Student:{student.name}</h1>
         </div>
       )
     }

@@ -24,9 +24,8 @@ class Batches extends PureComponent {
     const endDate = Moment(batch.endDate).format('d MMM YYYY')
 
     return (
-      <div className= "batch-card">
+      <div className= "batch-card" key={index}>
       <Card>
-        key={index}
         <CardTitle>
         {`Class ${classNumber} `} {` Duration of the Course: ${startDate} - ${endDate}`}
         </CardTitle>
