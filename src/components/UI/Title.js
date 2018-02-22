@@ -1,4 +1,3 @@
-// src/components/ui/Title.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
@@ -7,13 +6,11 @@ class Title extends PureComponent {
     content: PropTypes.string.isRequired,
   }
 
-
-
-  render() {
+render() {
     return(
-      <h1>
+      <h2>
         { this.props.content }
-      </h1>
+      </h2>
     )
   }
 }

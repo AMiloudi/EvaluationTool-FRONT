@@ -6,23 +6,24 @@ import {
   LOAD_SUCCESS
 } from '../loading'
 
-export const FETCHED_BATCHES = 'FETCHED_BATCHES'
-export const FETCHED_ONE_BATCH = 'FETCHED_ONE_BATCH'
+export const FETCHED_EVALUATIONS = 'FETCHED_EVALUATIONS'
+export const FETCHED_ONE_EVALUATION = 'FETCHED_ONE_EVALUATION'
 
 const api = new API()
 
-export default () => {
+export default (studentId) => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.get('/batches')
+    api.get(`/students/${studentId}/evaluations`)
     .then((result) => {
       dispatch({ type: APP_DONE_LOADING })
       dispatch({ type: LOAD_SUCCESS })
 
       dispatch({
-        type: FETCHED_BATCHES,
+        type: FETCHED_EVALUATIONS,
         payload: result.body
+
       })
     })
     .catch((error) => {
@@ -35,18 +36,20 @@ export default () => {
   }
 }
 
-export const fetchOneBatch = (batchId) => {
-  return dispatch => {
+
+export const fetchOneEvaluation = (studentId, evaluationId) => {
+  return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.get(`/batches/${batchId}`)
+    api.get(`/students/${studentId}/evaluations/${evaluationId}`)
     .then((result) => {
       dispatch({ type: APP_DONE_LOADING })
       dispatch({ type: LOAD_SUCCESS })
 
       dispatch({
-        type: FETCHED_ONE_BATCH,
+        type: FETCHED_ONE_EVALUATION,
         payload: result.body
+
       })
     })
     .catch((error) => {
