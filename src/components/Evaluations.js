@@ -7,23 +7,23 @@ import Moment from 'moment'
 import FlatButton from "material-ui/FlatButton";
 import {Card, CardTitle, CardActions } from 'material-ui/Card';
 
-
 class Evaluations extends PureComponent {
   componentWillMount() {
     const studentId= this.props.match.params.studentId
-const batchId= this.props.match.params.batchId
-    this.props.fetchOneStudent(batchId, studentId)
+    this.props.fetchOneStudent( studentId)
     this.props.fetchEvaluations(studentId)
 
-}
+  }
 
-    renderStudent = (student, index) => {
-      return (
-        <div key={index}>
-          <h1>Student:{student.name}</h1>
-        </div>
-      )
-    }
+  renderStudent = (student, index) => {
+    return (
+      <div key={index}>
+      <h1>Student:{student.name}</h1>
+      </div>
+    )
+  }
+
+
 
   renderEvaluation = (evaluation, index) => {
     const studentId = evaluation.studentId
@@ -31,16 +31,23 @@ const batchId= this.props.match.params.batchId
     const color = evaluation.color
     const remarks = evaluation.remarks
 
+
+    let evaluationStyle= {
+      backgroundColor: evaluation.color
+    }
+
+
     return (
       <div className= "evaluation-card" key={index}>
       <Card>
-       <CardTitle>
-        {`The evaluation is ${color} `} {` on Date: ${evalDate}`}
-        </CardTitle>
+      <CardTitle style={evaluationStyle}  >
+      {`The evaluation is from Date: ${evalDate}`}
+      </CardTitle>
       </Card>
       <CardActions>
-        <FlatButton label="New Evaluation" />
-        <FlatButton label="Remove"/>
+      <FlatButton label="view" />
+      <FlatButton label="New Evaluation" />
+      <FlatButton label="Remove"/>
       </CardActions>
       </div>
     )

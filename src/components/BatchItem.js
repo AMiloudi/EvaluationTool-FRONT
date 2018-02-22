@@ -5,7 +5,7 @@ import {fetchOneBatch} from "../actions/batches/fetch";
 import fetchStudents from "../actions/students/fetch";
 import FlatButton from "material-ui/FlatButton";
 import {Card, CardTitle, CardMedia, CardActions } from 'material-ui/Card';
-
+import CreateStudentButton from './CreateStudentButton'
 
 
 class BatchItem extends PureComponent {
@@ -30,8 +30,8 @@ class BatchItem extends PureComponent {
   renderStudent = (student, index) => {
     const name = student.name
     const picture = student.picture
- console.log(student)
-    return (
+
+     return (
       <div className= "student-card" key={index}>
       <Card>
       <CardTitle>
@@ -58,6 +58,7 @@ class BatchItem extends PureComponent {
       {batches.map(this.renderBatch)}
       <h3>students</h3>
       {students.map(this.renderStudent)}
+      <CreateStudentButton/>
       </div>
     )
   }

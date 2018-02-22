@@ -35,10 +35,10 @@ export default (batchId) => {
   }
 }
 
-export const fetchOneStudent = (batchId, studentId) => {
+export const fetchOneStudent = (studentId) => {
   return dispatch => {
     dispatch({ type: APP_LOADING })
-    api.get(`/batches/${batchId}/students/${studentId}`)
+    api.get(`/students/${studentId}`)
     .then((result) => {
       dispatch({ type: APP_DONE_LOADING })
       dispatch({ type: LOAD_SUCCESS })

@@ -37,11 +37,11 @@ export default (studentId) => {
 }
 
 
-export const fetchOneEvaluation = (studentId, evaluationId) => {
+export const fetchOneEvaluation = (evaluationId) => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.get(`/students/${studentId}/evaluations/${evaluationId}`)
+    api.get(`/evaluations/${evaluationId}`)
     .then((result) => {
       dispatch({ type: APP_DONE_LOADING })
       dispatch({ type: LOAD_SUCCESS })
