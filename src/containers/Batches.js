@@ -36,6 +36,10 @@ class Batches extends PureComponent {
   }
 
   render(batch, index){
+    if (!this.props.signedIn) {
+      this.props.push(`/sign-in`);
+    }
+
     const {batches} = this.props
     return (
       <div>
@@ -59,6 +63,6 @@ class Batches extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ batches }) => ({ batches });
+const mapStateToProps = ({ batches, currentUser }) => ({ batches, signedIn: !!currentUser && !!currentUser._id });
 
 export default connect(mapStateToProps, { fetchBatches, deleteBatch, push })(Batches);
