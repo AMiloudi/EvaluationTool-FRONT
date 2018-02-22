@@ -6,6 +6,7 @@ import fetchStudents from "../actions/students/fetch";
 import FlatButton from "material-ui/FlatButton";
 import {Card, CardTitle, CardMedia, CardActions } from 'material-ui/Card';
 import CreateStudentButton from './CreateStudentButton'
+import deleteStudent from "../actions/students/delete";
 
 
 class BatchItem extends PureComponent {
@@ -18,6 +19,7 @@ class BatchItem extends PureComponent {
 
   goToStudent = ( studentId) => event => this.props.push(`/students/${studentId}/evaluations`);
 
+  deleteThisStudent = (studentId) => event => this.props.deleteStudent(`${studentId}`);
 
   renderBatch = (batch, index) => {
     return (
@@ -42,8 +44,7 @@ class BatchItem extends PureComponent {
       </CardMedia>
       <CardActions>
       <FlatButton label="View" onClick={this.goToStudent(student._id)} />
-      <FlatButton label="Edit"   />
-      <FlatButton label="Remove" />
+      <FlatButton label="Remove" onClick={this.deleteThisStudent(student._id)}/>
       </CardActions>
       </Card>
       </div>
@@ -66,6 +67,6 @@ class BatchItem extends PureComponent {
 
 const mapStateToProps = ({students, batches, match}) => ({ students, batches });
 
-export default connect(mapStateToProps, { fetchStudents, fetchOneBatch, push })(
+export default connect(mapStateToProps, { deleteStudent, fetchStudents, fetchOneBatch, push })(
   BatchItem
 );
