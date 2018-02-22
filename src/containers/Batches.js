@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { push } from "react-router-redux";
 import fetchBatches from "../actions/batches/fetch";
 import deleteBatch from "../actions/batches/delete";
+import Moment from 'moment'
 import FlatButton from "material-ui/FlatButton";
 import {Card, CardTitle, CardActions } from 'material-ui/Card';
 import CreateBatchButton from "../components/CreateBatchButton";
@@ -19,8 +20,8 @@ class Batches extends PureComponent {
 
   renderBatch = (batch, index) => {
     const classNumber = batch.classNumber
-    const startDate = batch.startDate
-    const endDate = batch.endDate
+    const startDate = Moment(batch.startDate).format('d MMM YYYY')
+    const endDate = Moment(batch.endDate).format('d MMM YYYY')
 
     return (
       <div className= "batch-card">
