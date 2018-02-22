@@ -18,6 +18,7 @@ class CreateStudentButton extends PureComponent {
   submitStudent(event) {
     event.preventDefault()
     const student = {
+      batchId: this.props.batchId,
       name: this.refs.name.getValue(),
       picture: this.refs.picture.getValue(),
     }

@@ -7,6 +7,8 @@ import Moment from 'moment'
 import FlatButton from "material-ui/FlatButton";
 import deleteEvaluation from "../actions/evaluations/delete";
 import {Table, TableHeader, TableRow, TableHeaderColumn, TableBody, TableRowColumn }from 'material-ui/Table';
+import AddEvaluation from './AddEvaluation'
+
 
 class Evaluations extends PureComponent {
   componentWillMount() {
@@ -26,7 +28,6 @@ class Evaluations extends PureComponent {
   }
 
   renderEvaluation = (evaluation, index) => {
-    const studentId = evaluation.studentId
     const evalDate = Moment(evaluation.evalDate).format('d MMM YYYY')
     const color = evaluation.color
     const remarks = evaluation.remarks
@@ -69,6 +70,7 @@ class Evaluations extends PureComponent {
              {evaluations.map(this.renderEvaluation)}
          </TableBody>
        </Table>
+        <AddEvaluation  studentId={this.props.match.params.studentId}/>
  </div>
     )
   }
@@ -76,5 +78,5 @@ class Evaluations extends PureComponent {
 
 const mapStateToProps = ({ evaluations, students, match }) => ({ evaluations, students });
 
-export default connect(mapStateToProps, { deleteEvaluation, fetchOneStudent, fetchEvaluations, push })(
+export default connect(mapStateToProps, { AddEvaluation, deleteEvaluation, fetchOneStudent, fetchEvaluations, push })(
   Evaluations );
