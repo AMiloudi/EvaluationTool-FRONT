@@ -4,12 +4,29 @@ import { push } from "react-router-redux";
 import {fetchOneBatch} from "../actions/batches/fetch";
 import fetchStudents from "../actions/students/fetch";
 import FlatButton from "material-ui/FlatButton";
-import {Card, CardTitle, CardMedia, CardActions } from 'material-ui/Card';
 import CreateStudentButton from './CreateStudentButton'
 import deleteStudent from "../actions/students/delete";
 
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star';
+import DeleteButton from 'material-ui/svg-icons/action/delete';
+import ViewButton from 'material-ui/svg-icons/action/view-column';
 
-class BatchItem extends PureComponent {
+const styles = {
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+    },
+    gridList: {
+        width: 600,
+        overflowY: 'auto',
+    }
+};
+
+class Students extends PureComponent {
 
   componentWillMount() {
     const batchId= this.props.match.params.batchId
@@ -34,20 +51,9 @@ class BatchItem extends PureComponent {
     const picture = student.picture
 
      return (
-      <div className= "student-card" key={index}>
-      <Card>
-      <CardTitle>
-      {`Student: ${name} `}
-      </CardTitle>
-      <CardMedia>
-      <img src={`${picture}`} alt="student"/>
-      </CardMedia>
-      <CardActions>
-      <FlatButton label="View" onClick={this.goToStudent(student._id)} />
-      <FlatButton label="Remove" onClick={this.deleteThisStudent(student._id)}/>
-      </CardActions>
-      </Card>
-      </div>
+       <GridTile key={index} subtitle={<div><ViewButton color="white" onClick={this.goToStudent(student._id)}/><DeleteButton color="white" onClick={this.deleteThisStudent(student._id)}/></div>} title={name} actionIcon={<IconButton><StarBorder color="green" /></IconButton>}>
+         <img src={picture} />
+       </GridTile>
     )
   }
 
@@ -56,11 +62,18 @@ class BatchItem extends PureComponent {
 
     return (
       <div>
-      {batches.map(this.renderBatch)}
-      <h3>students</h3>
-      {students.map(this.renderStudent)}
-      <CreateStudentButton/>
-      </div>
+         {batches.map(this.renderBatch)}
+       <div style={styles.root}>
+
+       <GridList cols={4} cellHeight={180} style={styles.gridList}>
+           <Subheader>Students</Subheader>
+           {students.map(this.renderStudent)}
+       </GridList>
+
+
+       <CreateStudentButton/>
+       </div>
+         </div>
     )
   }
 }
@@ -68,5 +81,5 @@ class BatchItem extends PureComponent {
 const mapStateToProps = ({students, batches, match}) => ({ students, batches });
 
 export default connect(mapStateToProps, { deleteStudent, fetchStudents, fetchOneBatch, push })(
-  BatchItem
+  Students
 );

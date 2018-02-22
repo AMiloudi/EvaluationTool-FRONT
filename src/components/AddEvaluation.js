@@ -44,9 +44,9 @@ class addEvaluation extends PureComponent {
       <form onSubmit={this.submitEvaluation.bind(this)} ref="form">
       <SelectField
           floatingLabelText="Pick Color"
-          value={this.state.value}
-          onChange={this.handleChange}
-          style={styles.customWidth}
+          // value={this.state.value}
+          // onChange={this.handleChange}
+          // style={styles.customWidth}
         >
           <MenuItem value={1} primaryText="Red" />
           <MenuItem value={2} primaryText="Yellow" />
