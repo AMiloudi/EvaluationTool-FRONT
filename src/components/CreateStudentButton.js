@@ -5,8 +5,11 @@ import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import createStudent from '../actions/students/create'
+import {grey500} from 'material-ui/styles/colors';
 
-
+const hintTextStyle = {
+  color: grey500
+}
 class CreateStudentButton extends PureComponent {
   static propTypes = {
     signedIn: PropTypes.bool,
@@ -30,10 +33,10 @@ class CreateStudentButton extends PureComponent {
       <h4>Add a Student </h4>
       <form onSubmit={this.submitStudent.bind(this)} ref="form">
       <div className="input">
-      <TextField ref= "name" type="name" hintText= "First and Lastname" />
+      <TextField ref= "name" type="name" hintText= "First and Lastname" style={hintTextStyle}/>
       </div>
       <div className="input">
-      <TextField ref= "picture" type="picture" hintText= "Link to Picture of student" />
+      <TextField ref= "picture" type="picture" hintText= "Link to Picture of student" style={hintTextStyle} />
       </div>
       <FlatButton
       onClick={ this.submitStudent.bind(this) }

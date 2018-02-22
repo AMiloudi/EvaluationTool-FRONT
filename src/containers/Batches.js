@@ -32,7 +32,6 @@ class Batches extends PureComponent {
       </Card>
       <CardActions>
         <FlatButton label="View" onClick={this.goToBatch(batch._id)} />
-        <FlatButton label="Edit"   />
         <FlatButton label="Remove" onClick={this.deleteTheBatch(batch._id)} />
       </CardActions>
       </div>

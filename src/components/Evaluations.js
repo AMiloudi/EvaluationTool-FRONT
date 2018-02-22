@@ -6,6 +6,7 @@ import fetchEvaluations from "../actions/evaluations/fetch";
 import Moment from 'moment'
 import FlatButton from "material-ui/FlatButton";
 import {Card, CardTitle, CardActions } from 'material-ui/Card';
+import deleteEvaluation from "../actions/evaluations/delete";
 
 class Evaluations extends PureComponent {
   componentWillMount() {
@@ -14,7 +15,8 @@ class Evaluations extends PureComponent {
     this.props.fetchEvaluations(studentId)
 
   }
-
+  goToEvaluation = ( evaluationId) => event => this.props.push(`/evaluations/${evaluationId}`);
+  deleteThisEvaluation = (evaluationId) => event => this.props.deleteEvaluation(`${evaluationId}`);
   renderStudent = (student, index) => {
     return (
       <div key={index}>
@@ -22,8 +24,6 @@ class Evaluations extends PureComponent {
       </div>
     )
   }
-
-
 
   renderEvaluation = (evaluation, index) => {
     const studentId = evaluation.studentId
@@ -45,9 +45,9 @@ class Evaluations extends PureComponent {
       </CardTitle>
       </Card>
       <CardActions>
-      <FlatButton label="view" />
+      <FlatButton label="view" onClick={this.goToEvaluation(evaluation._id)} />
       <FlatButton label="New Evaluation" />
-      <FlatButton label="Remove"/>
+      <FlatButton label="Remove" onClick={this.deleteThisEvaluation(evaluation._id)}/>
       </CardActions>
       </div>
     )
@@ -67,5 +67,5 @@ class Evaluations extends PureComponent {
 
 const mapStateToProps = ({ evaluations, students, match }) => ({ evaluations, students });
 
-export default connect(mapStateToProps, { fetchOneStudent, fetchEvaluations, push })(
+export default connect(mapStateToProps, { deleteEvaluation, fetchOneStudent, fetchEvaluations, push })(
   Evaluations );
