@@ -14,7 +14,7 @@ export default ({ studentId, evalDate, color, remarks}) => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.post(`./students/${studentId}/evaluations`, {evalDate, color, remarks})
+    api.post(`/students/${studentId}/evaluations`, {evalDate, color, remarks})
       .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })

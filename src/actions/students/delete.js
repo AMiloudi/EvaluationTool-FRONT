@@ -9,7 +9,7 @@ const api = new API()
 
 export default  (studentId) => {
   return (dispatch) => {
-    api.delete(`/student/${studentId}`)
+    api.delete(`/students/${studentId}`)
     .then((result) => {
       dispatch({
         type: STUDENT_REMOVED,

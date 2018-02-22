@@ -7,9 +7,9 @@ export const EVALUATION_REMOVED = 'EVALUATION_REMOVED'
 
 const api = new API()
 
-export default (studentId, evaluationId) => {
+export default ( evaluationId) => {
   return (dispatch) => {
-    api.delete(`/students/${studentId}/evaluation/${evaluationId}`)
+    api.delete(`/evaluations/${evaluationId}`)
     .then((result) => {
       dispatch({
         type: EVALUATION_REMOVED,
