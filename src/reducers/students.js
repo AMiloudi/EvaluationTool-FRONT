@@ -1,7 +1,6 @@
 import {
   FETCHED_ALL_STUDENTS,
   FETCHED_ONE_STUDENT } from '../actions/students/fetch'
-  import { FETCHED_ONE_BATCH } from '../actions/batches/fetch'
   import { STUDENT_CREATED } from '../actions/students/create'
   import { STUDENT_REMOVED } from '../actions/students/delete'
   import { STUDENT_UPDATED } from '../actions/students/edit'

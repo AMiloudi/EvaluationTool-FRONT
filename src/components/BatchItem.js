@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import PropTypes from 'prop-types'
 import {fetchOneBatch} from "../actions/batches/fetch";
 import fetchStudents from "../actions/students/fetch";
 import FlatButton from "material-ui/FlatButton";
@@ -17,12 +16,12 @@ class BatchItem extends PureComponent {
     this.props.fetchStudents(batchId)
   }
 
-  goToStudent = (batchId, studentId) => event => this.props.push(`/batches/${batchId}/students/${studentId}`);
+  goToStudent = (batchId, studentId) => event => this.props.push(`/students/${studentId}/evaluations`);
 
 
   renderBatch = (batch, index) => {
     return (
-      <div>
+      <div key={index}>
         <h1>Class: {batch.classNumber}</h1>
       </div>
     )
@@ -31,11 +30,10 @@ class BatchItem extends PureComponent {
   renderStudent = (student, index) => {
     const name = student.name
     const picture = student.picture
-
+ console.log(student)
     return (
-      <div className= "student-card">
+      <div className= "student-card" key={index}>
       <Card>
-      key={index}
       <CardTitle>
       {`Student: ${name} `}
       </CardTitle>

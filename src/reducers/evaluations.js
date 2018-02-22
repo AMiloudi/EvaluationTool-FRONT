@@ -1,7 +1,6 @@
 import {
   FETCHED_EVALUATIONS,
   FETCHED_ONE_EVALUATION } from '../actions/evaluations/fetch'
-  import { FETCHED_ONE_STUDENT } from '../actions/students/fetch'
   import { EVALUATION_REMOVED } from '../actions/evaluations/delete'
   import { EVALUATION_CREATED } from '../actions/evaluations/create'
   import { EVALUATION_UPDATED } from '../actions/evaluations/edit'
