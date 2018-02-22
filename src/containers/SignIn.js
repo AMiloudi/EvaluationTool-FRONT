@@ -46,6 +46,11 @@ export class SignIn extends PureComponent {
   }
 
   render() {
+
+    if (this.props.signedIn) {
+      this.props.push(`/`);
+    }
+
     return (
       <Paper style={ dialogStyle }>
         <Title content="Sign In" level={2} />
