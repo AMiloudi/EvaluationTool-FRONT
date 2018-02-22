@@ -7,6 +7,7 @@ import Moment from 'moment'
 import FlatButton from "material-ui/FlatButton";
 import {Card, CardTitle, CardActions } from 'material-ui/Card';
 import deleteEvaluation from "../actions/evaluations/delete";
+import AddEvaluation from './AddEvaluation'
 
 class Evaluations extends PureComponent {
   componentWillMount() {
@@ -60,6 +61,7 @@ class Evaluations extends PureComponent {
       {students.map(this.renderStudent)}
       <h5>All evaluations for this Student</h5>
       {evaluations.map(this.renderEvaluation)}
+      < AddEvaluation />
       </div>
     )
   }
