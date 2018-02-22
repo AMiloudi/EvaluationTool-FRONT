@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { push } from "react-router-redux";
 import {fetchOneStudent} from "../actions/students/fetch";
 import fetchEvaluations from "../actions/evaluations/fetch";
+import Moment from 'moment'
 import FlatButton from "material-ui/FlatButton";
 import {Card, CardTitle, CardActions } from 'material-ui/Card';
 
@@ -10,15 +11,15 @@ import {Card, CardTitle, CardActions } from 'material-ui/Card';
 class Evaluations extends PureComponent {
   componentWillMount() {
     const studentId= this.props.match.params.studentId
-
-    this.props.fetchOneStudent(studentId)
+const batchId= this.props.match.params.batchId
+    this.props.fetchOneStudent(batchId, studentId)
     this.props.fetchEvaluations(studentId)
-        console.log(this.props)
+
 }
 
     renderStudent = (student, index) => {
       return (
-        <div>
+        <div key={index}>
           <h1>Student:{student.name}</h1>
         </div>
       )
@@ -26,21 +27,19 @@ class Evaluations extends PureComponent {
 
   renderEvaluation = (evaluation, index) => {
     const studentId = evaluation.studentId
-    const evalDate = evaluation.evalDate
+    const evalDate = Moment(evaluation.evalDate).format('d MMM YYYY')
     const color = evaluation.color
     const remarks = evaluation.remarks
 
     return (
-      <div className= "evaluation-card">
+      <div className= "evaluation-card" key={index}>
       <Card>
-        key={index}
-        <CardTitle>
+       <CardTitle>
         {`The evaluation is ${color} `} {` on Date: ${evalDate}`}
         </CardTitle>
       </Card>
       <CardActions>
-        <FlatButton label="View" />
-        <FlatButton label="Edit" />
+        <FlatButton label="New Evaluation" />
         <FlatButton label="Remove"/>
       </CardActions>
       </div>

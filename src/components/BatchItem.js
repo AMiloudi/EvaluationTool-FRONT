@@ -16,7 +16,7 @@ class BatchItem extends PureComponent {
     this.props.fetchStudents(batchId)
   }
 
-  goToStudent = (batchId, studentId) => event => this.props.push(`/students/${studentId}/evaluations`);
+  goToStudent = ( studentId) => event => this.props.push(`/students/${studentId}/evaluations`);
 
 
   renderBatch = (batch, index) => {
