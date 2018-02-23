@@ -55,7 +55,7 @@ class Evaluations extends PureComponent {
     const {students, evaluations} = this.props
     return (
       <div>
-       <h3>All evaluations for this Student</h3>
+       <h2>All evaluations for this Student</h2>
        {students.map(this.renderStudent)}
        <Table>
          <TableHeader>

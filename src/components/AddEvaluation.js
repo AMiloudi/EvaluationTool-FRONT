@@ -27,7 +27,7 @@ class AddEvaluation extends PureComponent {
 
 
     this.props.createEvaluation(evaluation)
-    // this.refs.form.reset()
+    this.refs.form.reset()
   }
 
   render() {
@@ -35,8 +35,9 @@ class AddEvaluation extends PureComponent {
 
     return (
       <div className="Form">
-      <h4>New Evalation</h4>
+      <h2>New Evalation</h2>
       <form onSubmit={this.submitEvaluation.bind(this)} ref="form">
+       <h3> Fill in red, yellow or green</h3>
       <div className="input">
       <TextField ref= "color" type= "text" hintText="red, green or yellow" style={Style.hintText} />
       </div>

@@ -69,7 +69,10 @@ class Students extends PureComponent {
     const color = this.getCurrentColor(student._id)
 
     return (
-      <GridTile key={index} subtitle={<div><ViewButton color="white" onClick={this.goToStudent(student._id)}/><DeleteButton color="white" onClick={this.deleteThisStudent(student._id)}/></div>} title={name} actionIcon={<IconButton><StarBorder color={color} /></IconButton>}>
+      <GridTile key={index} subtitle={
+      <div><ViewButton color="white" onClick={this.goToStudent(student._id)}/>
+      <DeleteButton color="white" onClick={this.deleteThisStudent(student._id)}/></div>}
+      title={name} actionIcon={<IconButton><StarBorder color={color} /></IconButton>}>
       <img src={picture} alt="student"/>
       </GridTile>
     )
