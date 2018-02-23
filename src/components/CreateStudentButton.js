@@ -31,7 +31,7 @@ class CreateStudentButton extends PureComponent {
 
     return (
       <div className="Form">
-      <h4>Add a Student </h4>
+      <h2>Add a Student </h2>
       <form onSubmit={this.submitStudent.bind(this)} ref="form">
       <div className="input">
       <TextField ref= "name" type="name" hintText= "First and Lastname" style={hintTextStyle}/>

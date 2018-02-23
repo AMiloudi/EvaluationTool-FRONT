@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { Students } from './components'
-import { Evaluations, EvaluationItem } from './components'
+import { Evaluations, Students } from './components'
 import { Lobby, Batches, SignIn, SignUp} from './containers'
 
 
@@ -13,7 +12,6 @@ export default class Routes extends Component {
         <Route exact path="/batches" component={Batches} />
         <Route exact path="/batches/:batchId/students" component={Students} />
         <Route exact path="/students/:studentId/evaluations" component={Evaluations} />
-        <Route exact path="/evaluations/:evaluationId" component={EvaluationItem} />
         <Route exact path="/sign-in" component={SignIn} />
         <Route exact path="/sign-up" component={SignUp} />
       </Switch>
