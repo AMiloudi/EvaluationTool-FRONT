@@ -93,7 +93,7 @@ class CreateBatchButton extends PureComponent {
 
     return (
       <div className="Form">
-      <h2>Create a new Batch </h2>
+      <h2>Add Batch</h2>
       <form onSubmit={this.submitBatch.bind(this)} ref="form">
       <div className="input">
       <TextField ref= "classNumber" type="classNumber" hintText= "Class Number"

@@ -6,3 +6,8 @@ body {
   font-family: 'Bellefair', serif;
   background-color: #f6f6f6;
 }
+
+.Form{
+  text-align: center;
+  margin-top: 4rem;
+}

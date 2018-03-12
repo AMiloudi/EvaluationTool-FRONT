@@ -34,8 +34,8 @@ class AddEvaluation extends PureComponent {
     if (!this.props.signedIn) return null
 
     return (
-      <div className="Form">
-      <h2>New Evalation</h2>
+      <div className="Form" style={{textAlign:'center', marginTop:'4rem'}}>
+      <h2>Add Evalation</h2>
       <form onSubmit={this.submitEvaluation.bind(this)} ref="form">
        <h3> Fill in red, yellow or green</h3>
       <div className="input">
