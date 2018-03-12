@@ -44,8 +44,7 @@ class Evaluations extends PureComponent {
          <TableRowColumn>{color}</TableRowColumn>
          <TableRowColumn>{remarks}</TableRowColumn>
          <TableRowColumn>
-           <FlatButton label="view" onClick={this.goToEvaluation(evaluation._id)} />
-           <FlatButton label="Remove" onClick={this.deleteThisEvaluation(evaluation._id)}/>
+             <FlatButton label="Remove" onClick={this.deleteThisEvaluation(evaluation._id)}/>
          </TableRowColumn>
        </TableRow>
     )
