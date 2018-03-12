@@ -70,7 +70,7 @@ class Evaluations extends PureComponent {
          </TableBody>
        </Table>
         <AddEvaluation  studentId={this.props.match.params.studentId}/>
- </div>
+     </div>
     )
   }
 }

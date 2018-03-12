@@ -30,34 +30,34 @@ class editBatchForm extends PureComponent {
 
     return (
       <div className="Form">
-      <h2>Edit the batch </h2>
-      <form onSubmit={this.editBatch.bind(this)} ref="form">
-      <div className="input">
-      <TextField ref= "classNumber" type="classNumber" hintText= "Class Number"
-      style={styles.hintText}
-      />
-      </div>
-      <h3>Start date of the academy:</h3>
-      <div className="input">
-      <TextField
-      ref="startDate"
-      type="date"
+        <h2>Edit the batch </h2>
+        <form onSubmit={this.editBatch.bind(this)} ref="form">
+          <div className="input">
+            <TextField ref= "classNumber" type="classNumber" hintText= "Class Number"
+            style={styles.hintText}
+            />
+          </div>
+          <h3>Start date of the academy:</h3>
+          <div className="input">
+            <TextField
+            ref="startDate"
+            type="date"
 
-      // errorText={ this.state.startDateError}
-      />
-      </div>
-      <h3>End date of the academy:</h3>
-      <div className="input">
-      <TextField ref="endDate"
-      type="date"
-          // errorText={ this.state.endDateError}
-      />
-      </div>
-      <FlatButton
-      onClick={ this.editBatch.bind(this) }
-      label="Create new batch"
-      />
-      </form>
+            // errorText={ this.state.startDateError}
+            />
+          </div>
+          <h3>End date of the academy:</h3>
+          <div className="input">
+            <TextField ref="endDate"
+            type="date"
+                // errorText={ this.state.endDateError}
+            />
+          </div>
+            <FlatButton
+            onClick={ this.editBatch.bind(this) }
+            label="Create new batch"
+            />
+        </form>
       </div>
     )
   }
