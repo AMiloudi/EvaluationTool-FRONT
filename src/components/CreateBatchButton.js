@@ -93,35 +93,35 @@ class CreateBatchButton extends PureComponent {
 
     return (
       <div className="Form">
-      <h2>Create a new Batch </h2>
-      <form onSubmit={this.submitBatch.bind(this)} ref="form">
-      <div className="input">
-      <TextField ref= "classNumber" type="classNumber" hintText= "Class Number"
-      style={styles.hintText}
-      />
-      </div>
-      <h3>Start date of the academy:</h3>
-      <div className="input">
-      <TextField
-      ref="startDate"
-      type="date"
-      onChange={this.validatestartDate.bind(this)}
-      // errorText={ this.state.startDateError}
-      />
-      </div>
-      <h3>End date of the academy:</h3>
-      <div className="input">
-      <TextField ref="endDate"
-      type="date"
-      onChange={this.validateEndDate.bind(this)}
-      // errorText={ this.state.endDateError}
-      />
-      </div>
-      <FlatButton
-      onClick={ this.submitBatch.bind(this) }
-      label="Create new batch"
-      />
-      </form>
+        <h2>Add Batch</h2>
+        <form onSubmit={this.submitBatch.bind(this)} ref="form">
+          <div className="input">
+            <TextField ref= "classNumber" type="classNumber" hintText= "Class Number"
+            style={styles.hintText}
+            />
+          </div>
+          <h3>Start date of the academy:</h3>
+          <div className="input">
+            <TextField
+            ref="startDate"
+            type="date"
+            onChange={this.validatestartDate.bind(this)}
+            // errorText={ this.state.startDateError}
+            />
+          </div>
+          <h3>End date of the academy:</h3>
+          <div className="input">
+            <TextField ref="endDate"
+            type="date"
+            onChange={this.validateEndDate.bind(this)}
+            // errorText={ this.state.endDateError}
+            />
+          </div>
+            <FlatButton
+            onClick={ this.submitBatch.bind(this) }
+            label="Create new batch"
+            />
+        </form>
       </div>
     )
   }

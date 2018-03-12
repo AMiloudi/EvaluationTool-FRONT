@@ -35,23 +35,23 @@ class AddEvaluation extends PureComponent {
 
     return (
       <div className="Form">
-      <h2>New Evalation</h2>
-      <form onSubmit={this.submitEvaluation.bind(this)} ref="form">
-       <h3> Fill in red, yellow or green</h3>
-      <div className="input">
-      <TextField ref= "color" type= "text" hintText="red, green or yellow" style={Style.hintText} />
-      </div>
-        <div className="input">
-          <TextField ref= "evalDate" type= "date" hintText="Evaluation for date:" style={Style.hintText} />
-        </div>
-      <div className="input">
-      <TextField ref= "remarks" type="text" style={Style.hintText} />
-      </div>
-      <FlatButton
-      onClick={ this.submitEvaluation.bind(this) }
-      label="add Evaluation"
-      />
-      </form>
+        <h2>Add Evalation</h2>
+        <form onSubmit={this.submitEvaluation.bind(this)} ref="form">
+          <h3> Fill in red, yellow or green</h3>
+          <div className="input">
+            <TextField ref= "color" type= "text" hintText="red, green or yellow" style={Style.hintText} />
+          </div>
+          <div className="input">
+            <TextField ref= "evalDate" type= "date" hintText="Evaluation for date:" style={Style.hintText} />
+          </div>
+          <div className="input">
+            <TextField ref= "remarks" type="text" style={Style.hintText} />
+          </div>
+            <FlatButton
+            onClick={ this.submitEvaluation.bind(this) }
+            label="add Evaluation"
+            />
+        </form>
       </div>
     )
   }

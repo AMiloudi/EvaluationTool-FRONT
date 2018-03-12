@@ -87,7 +87,7 @@ class Students extends PureComponent {
         <AskQuestion students={this.props.students} evaluations={this.props.evaluations} getCurrentColor={this.getCurrentColor} />
         <div style={styles.root}>
           <GridList cols={4} cellHeight={180} style={styles.gridList}>
-          <Subheader>Students</Subheader>
+          <Subheader style={{ color:'black', fontSize: '2rem'}}>Students</Subheader>
           {students.map(this.renderStudent.bind(this))}
           </GridList>
           <CreateStudentButton  batchId={this.props.match.params.batchId}/>

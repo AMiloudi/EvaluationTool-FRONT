@@ -7,7 +7,7 @@ class Lobby extends PureComponent {
   render() {
     return (
       <div className="Batches">
-      <Batches/>
+        <Batches/>
       </div>
     )
   }

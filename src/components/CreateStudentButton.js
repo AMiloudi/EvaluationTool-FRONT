@@ -31,19 +31,19 @@ class CreateStudentButton extends PureComponent {
 
     return (
       <div className="Form">
-      <h2>Add a Student </h2>
-      <form onSubmit={this.submitStudent.bind(this)} ref="form">
-      <div className="input">
-      <TextField ref= "name" type="name" hintText= "First and Lastname" style={hintTextStyle}/>
-      </div>
-      <div className="input">
-      <TextField ref= "picture" type="picture" hintText= "Link to Picture of student" style={hintTextStyle} />
-      </div>
-      <FlatButton
-      onClick={ this.submitStudent.bind(this) }
-      label="add Student"
-      />
-      </form>
+        <h2>Add Student</h2>
+        <form onSubmit={this.submitStudent.bind(this)} ref="form">
+          <div className="input">
+            <TextField ref= "name" type="name" hintText= "First and Lastname" style={hintTextStyle}/>
+          </div>
+          <div className="input">
+            <TextField ref= "picture" type="picture" hintText= "Link to Picture of student" style={hintTextStyle} />
+          </div>
+            <FlatButton
+            onClick={ this.submitStudent.bind(this) }
+            label="add Student"
+            />
+        </form>
       </div>
     )
   }
